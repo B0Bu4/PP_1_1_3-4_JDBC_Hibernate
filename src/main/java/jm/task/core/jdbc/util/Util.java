@@ -13,9 +13,9 @@ public class Util {
     public static Connection getConnection() throws SQLException {
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Соединение с БД установаленно");
+
         } catch (SQLException e) {
-            System.out.println("Ошибка!" + e);
+            e.printStackTrace();
         }
         return connection;
     }
