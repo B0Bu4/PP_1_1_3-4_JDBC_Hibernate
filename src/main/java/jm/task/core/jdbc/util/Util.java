@@ -11,6 +11,7 @@ public class Util {
     private static final String PASSWORD = "1234";
 
     public static Connection getConnection() throws SQLException {
+
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
