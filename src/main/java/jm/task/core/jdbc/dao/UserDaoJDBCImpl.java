@@ -70,10 +70,9 @@ public class UserDaoJDBCImpl implements UserDao {
 
         List<User> userList = new ArrayList<>();
 
-        try (Connection connection = Util.getConnection(); Statement statement = connection.createStatement()) {
 
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
-            // ResultSet закрывается автоматически при закрытии Statement?
+        try (Connection connection = Util.getConnection(); Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
 
             while (resultSet.next()) {
                 User user = new User();
@@ -84,7 +83,6 @@ public class UserDaoJDBCImpl implements UserDao {
 
                 userList.add(user);
             }
-            resultSet.close(); //на всякий случай
 
         } catch (SQLException e) {
             e.printStackTrace();
